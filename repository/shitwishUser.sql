@@ -10,3 +10,6 @@ create table if not exists shitwishusers
   constraint shitwishusers_pkey
   primary key (id)
 );
+
+create unique index if not exists shitwishusers_email_uindex
+  on shitwishusers (email);
