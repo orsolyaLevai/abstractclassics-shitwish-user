@@ -40,6 +40,3 @@ def getUser(id):
     if user == None:
         return "userNotFound"
     return jsonify(user)
-
-
-
