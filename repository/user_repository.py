@@ -19,20 +19,22 @@ def insert_user(cursor, firstname, lastname, email, password, address, phonenumb
                                                   'address': address,
                                                   'phoneNumber': phonenumber})
 
+
 @data_manager.connection_handler
 def get_user_by_email(cursor, email):
     cursor.execute("""
                         SELECT * FROM shitwishusers
-                        where email = %(email)s
+                        WHERE email = %(email)s
                     """, {'email': email})
     user = cursor.fetchone()
     return user
+
 
 @data_manager.connection_handler
 def get_user_by_id(cursor, id):
     cursor.execute("""
                         SELECT * FROM shitwishusers
-                        where id = %(id)s
+                        WHERE id = %(id)s
                     """, {'id': id})
     user = cursor.fetchone()
     return user

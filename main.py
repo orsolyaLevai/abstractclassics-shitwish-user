@@ -24,19 +24,19 @@ def register_user():
 
 
 @app.route("/login", methods=['POST'])
-def loginUser():
-    emailDict = request.get_json(force=True)
-    email = emailDict["email"]
+def login_user():
+    email_dict = request.get_json(force=True)
+    email = email_dict["email"]
     user = user_repository.get_user_by_email(email)
-    if user == None:
+    if user is None:
         return "userNotFound"
     return jsonify(user)
 
 
-@app.route("/user/<int:id>", methods=['GET'])
-def getUser(id):
-    user = user_repository.get_user_by_id(id)
-    if user == None:
+@app.route("/user/<int:user_id>", methods=['GET'])
+def get_user(user_id):
+    user = user_repository.get_user_by_id(user_id)
+    if user is None:
         return "userNotFound"
     return jsonify(user)
 
