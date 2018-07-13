@@ -1,8 +1,8 @@
-from repository import dataManager
+from repository import data_manager
 
 
-@dataManager.connection_handler
-def insertUser(cursor, firstname, lastname, email, password, address, phonenumber):
+@data_manager.connection_handler
+def insert_user(cursor, firstname, lastname, email, password, address, phonenumber):
     cursor.execute("""
                                         INSERT INTO shitwishusers (first_name, last_name, email, password, address, phone_number)
                                         VALUES (
@@ -19,20 +19,22 @@ def insertUser(cursor, firstname, lastname, email, password, address, phonenumbe
                                                   'address': address,
                                                   'phoneNumber': phonenumber})
 
-@dataManager.connection_handler
-def getUserByEmail(cursor, email):
+
+@data_manager.connection_handler
+def get_user_by_email(cursor, email):
     cursor.execute("""
                         SELECT * FROM shitwishusers
-                        where email = %(email)s
+                        WHERE email = %(email)s
                     """, {'email': email})
     user = cursor.fetchone()
     return user
 
-@dataManager.connection_handler
-def getUserById(cursor, id):
+
+@data_manager.connection_handler
+def get_user_by_id(cursor, id):
     cursor.execute("""
                         SELECT * FROM shitwishusers
-                        where id = %(id)s
+                        WHERE id = %(id)s
                     """, {'id': id})
     user = cursor.fetchone()
     return user
