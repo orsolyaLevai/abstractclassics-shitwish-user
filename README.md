@@ -1,1 +1,1 @@
-# -abstractclassics-shitwish-user
+# Abstractclassics team user api for Shitwish webshop
